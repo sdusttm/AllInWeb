@@ -10,10 +10,14 @@ const express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser')
 const app = express();
+app.use(express.static(path.join(__dirname, 'css')))
+app.use(express.static(path.join(__dirname, 'Resources')))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 
-app.get('/hello', (req, res) => res.send("hello world!"));
+app.get('/', (req, res) => res.send("hello world!"));
+
+app.get('/index', (req, res) => res.sendFile(path.join(__dirname + '/index.html')));
 
 app.get('/signup', function(req, res){
     res.sendFile(path.join(__dirname + '/signup.html'));
