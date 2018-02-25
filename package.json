@@ -1,0 +1,28 @@
+{
+  "name": "allinweb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/mainsass.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdusttm/AllInWeb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdusttm/AllInWeb/issues"
+  },
+  "homepage": "https://github.com/sdusttm/AllInWeb#readme",
+  "devDependencies": {
+    "node-sass": "^4.7.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "ws": "^4.0.0"
+  }
+}

@@ -1,0 +1,76 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
+a {
+    text-decoration: none;
+}
+
+ui {
+    list-style-type: none;
+}
+
+.header-logo {
+    max-height: 50rem;
+}
+
+.main-header {
+    height: 30vh;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(241, 233, 233, 0.3),
+        rgba(44, 39, 39, 0.3)
+    ),
+    url("../Resources/Images/mstitle.jpg");
+    background-size: cover;
+    background-position: top;
+    position: relative;
+}
+
+.header-title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 6rem;
+    font-weight: 100;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-nav {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 4rem;
+    font-weight: 100;
+    background-color: rgba(249, 234, 214, 0.7);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.main-nav-item {
+    padding: .2rem 1rem;
+    border-style: solid;
+    border-color: black;
+    border-width: 0rem .1rem;
+    min-width: 10%;
+    max-width: 20%;
+    text-align: center;
+    float: left;
+}
+
+.main-nav :hover {
+    color: rgb(0, 255, 55);
+}
+
+.sub-nav {
+    display: none;
+}
