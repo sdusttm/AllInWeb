@@ -30,7 +30,7 @@ ui {
         rgba(241, 233, 233, 0.3),
         rgba(44, 39, 39, 0.3)
     ),
-    url("images/mstitle.jpg");
+    url("https://menticdn.blob.core.windows.net/images/mstitle.jpg");
     background-size: cover;
     background-position: top;
     position: relative;
