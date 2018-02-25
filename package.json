@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/mainsass.css -w"
+    "compile:sass": "node-sass sass/main.scss css/mainsass.css -w",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",

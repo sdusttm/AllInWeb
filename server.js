@@ -2,6 +2,7 @@ console.log("server stared")
 
 var wsServer = require('ws').Server;
 wss = new wsServer({port:8222});
+const port = process.env.PORT || 3000;
 
 const path = require('path');
 const fs = require('fs');
@@ -88,7 +89,7 @@ app.post('/signin', function(req, res) {
     }
 })
 
-app.listen(3000, () => console.log("app start listening on port 3000"));
+app.listen(port, () => console.log("app start listening on port " + port));
 
 wss.on('connection', function(ws) {
     console.log('client connected');
