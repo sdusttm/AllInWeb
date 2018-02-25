@@ -1,7 +1,7 @@
 console.log("server stared")
 
 var wsServer = require('ws').Server;
-wss = new wsServer({port:8222});
+
 const port = process.env.PORT || 3000;
 
 const path = require('path');
@@ -95,10 +95,23 @@ app.post('/signin', function(req, res) {
 
 app.listen(port, () => console.log("app start listening on port " + port));
 
+wss = new wsServer({port:8181});
 wss.on('connection', function(ws) {
     console.log('client connected');
     ws.on('message', function(ms) {
         console.log(ms);
+        wss.clients.forEach(client => {
+            client.send(ms)
+        });
+        // ws.send("from server: " + ms)
+    })
+
+    ws.on('close', () => {
+        console.log('connection closed')
+    })
+
+    ws.on('error', () => {
+        console.log('error')
     })
 })
 
