@@ -1,4 +1,5 @@
-var socket = new WebSocket("ws://localhost:8181")
+var HOST = location.origin.replace(/^http/, 'ws')
+var socket = new WebSocket('ws://127.0.0.1:8080');
 socket.onopen = function(e) {
     console.log("connection established");
 }

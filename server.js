@@ -1,22 +1,43 @@
-console.log("server stared")
+const webSocketServer = require('./WebSocketServer.js');
 
-var wsServer = require('ws').Server;
+console.log("server stared")
 
 const port = process.env.PORT || 3000;
 
 const path = require('path');
 const fs = require('fs');
+const http = require('http');
+var parseurl = require('parseurl')
 const express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser')
+var session = require('express-session')
 const app = express();
+const httpServer = http.createServer(app)
 app.use(express.static(path.join(__dirname, 'css')))
 app.use(express.static(path.join(__dirname, 'Resources')))
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
+app.use(session({
+    secret: 'menti',
+    resave: false,
+    saveUninitialized: true
+  }))
+
+app.use(function (req, res, next) {
+    if (!req.session.views) {
+        req.session.views = {}
+    }
+    // get the url pathname
+    var pathname = parseurl(req).pathname
+    // count the views
+    req.session.views[pathname] = (req.session.views[pathname] || 0) + 1
+    console.log('you viewed this page ' + req.session.views[pathname] + ' times')
+    next()
+})
 
 app.get('/hello', (req, res) => res.send("hello world!"));
-
 app.get('/', (req, res) => res.sendFile(path.join(__dirname + '/index.html')));
 app.get('/chat', (req, res) => res.sendFile(path.join(__dirname + '/chat.html')));
 
@@ -96,23 +117,7 @@ app.post('/signin', function(req, res) {
 
 app.listen(port, () => console.log("app start listening on port " + port));
 
-wss = new wsServer({port:8181});
-wss.on('connection', function(ws) {
-    console.log('client connected');
-    ws.on('message', function(ms) {
-        console.log(ms);
-        wss.clients.forEach(client => {
-            client.send(ms)
-        });
-        // ws.send("from server: " + ms)
-    })
+webSocketServer.run();
 
-    ws.on('close', () => {
-        console.log('connection closed')
-    })
 
-    ws.on('error', () => {
-        console.log('error')
-    })
-})
 
