@@ -62,13 +62,6 @@ app.post('/signup', function (req, res) {
 app.get('/signin', function (req, res) {
     console.log('Get Cookies: ', req.cookies)
     if (typeof (req.session.auth) !== 'undefined') {
-        var users = fs.readFileSync(dbPath, 'utf8')
-        if (typeof (users) === 'string' && users.length === 0) {   // if the file is empty
-            users = [];
-        } else {
-            users = JSON.parse(users)
-        }
-
         if (req.session.auth['state']) {
             res.send('already loggedin')
         }
