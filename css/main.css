@@ -67,6 +67,17 @@ ui {
     float: left;
 }
 
+.main-nav-loginstate {
+    font-size: 4rem;
+    padding: .2rem 1rem;
+    border-style: solid;
+    border-color: black;
+    border-width: 0rem .1rem;
+    min-width: 10%;
+    text-align: center;
+    float: right;
+}
+
 .main-nav :hover {
     color: rgb(0, 255, 55);
 }
