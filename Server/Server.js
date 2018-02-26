@@ -67,8 +67,9 @@ app.get('/signin', function (req, res) {
         } else {
             res.send('not loggedin')
         }
+    } else {
+        res.sendFile(path.join(__dirname + '/../signin.html'));
     }
-    res.sendFile(path.join(__dirname + '/../signin.html'));
 })
 
 app.post('/signin', function (req, res) {
