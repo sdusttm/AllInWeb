@@ -64,12 +64,10 @@ app.get('/signin', function (req, res) {
     if (typeof (req.session.auth) !== 'undefined') {
         if (req.session.auth['state']) {
             res.send('already loggedin')
-        } else {
-            res.send('not loggedin')
         }
-    } else {
-        res.sendFile(path.join(__dirname + '/../signin.html'));
     }
+    
+    res.sendFile(path.join(__dirname + '/../signin.html'));
 })
 
 app.post('/signin', function (req, res) {
