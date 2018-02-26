@@ -64,6 +64,8 @@ app.get('/signin', function (req, res) {
     if (typeof (req.session.auth) !== 'undefined') {
         if (req.session.auth['state']) {
             res.send('already loggedin')
+        } else {
+            res.send('not loggedin')
         }
     }
     res.sendFile(path.join(__dirname + '/../signin.html'));
