@@ -2,12 +2,11 @@ const webSocketServer = require('./WebSocketServer.js');
 const auth = require('./SessionServer.js');
 
 console.log("server stared")
-
-const port = process.env.PORT || 3000;
-const dbPath = "../db/accounts";
 const path = require('path');
 const fs = require('fs');
 const http = require('http');
+const port = process.env.PORT || 3000;
+const dbPath = path.join(__dirname, '/../db/accounts');
 
 const express = require('express');
 const bodyParser = require('body-parser');
