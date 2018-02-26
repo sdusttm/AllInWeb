@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile:sass": "node-sass sass/main.scss css/mainsass.css -w",
-    "start": "node Server.js"
+    "start": "node ./Server/Server.js"
   },
   "repository": {
     "type": "git",
